@@ -1,13 +1,23 @@
 
 <template>
   <div class="healthcare-providers-show">
-    <h4> {{ healthcare_provider.todays_visits }} </h4>
+    <div class="card" style="width: 25rem;">
+  <div class="card-header">
+    Today's Visits
+  </div>
+  <ul class="list-group list-group-flush">
 
-    <ul>
-      <li v-for="todays_visits in healthcare_provider.todays_visits">
-        {{todays_visit}}
+  
+      <li v-for="visit_datetime in healthcare_provider.formatted.todays_visits.visit_datetime">
+        {{visti_datetime}}
       </li>
-    </ul>
+  
+    <!-- <li class="list-group-item"> {{ healthcare_provider.formatted.todays_visits[0]["visit_datetime"] }} </li>
+    <li class='list-group-item'> {{ healthcare_provider.formatted.todays_visits[1]["visit_datetime"] }} </li>
+    <li> {{ healthcare_provider["visit"][2]["patient_name"] }} </li> -->
+    <router-link class="btn btn-primary" v-bind:to="'/patients/1'">Start Visit</router-link>
+  </ul>
+</div>
     
 </div>
 
@@ -23,7 +33,12 @@ var axios = require('axios');
 export default {
   data: function() {
     return {
-      healthcare_provider: {}
+      healthcare_provider: {
+        formatted: {
+          todays_visits: [
+            ],
+        }
+      }
     };
   },
   created: function() {

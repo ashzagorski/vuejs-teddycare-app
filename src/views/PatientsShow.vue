@@ -23,7 +23,9 @@ export default {
   data: function() {
     return {
       patient: {
-        date_of_birth: ""
+        formatted: {
+          date_of_birth: ""
+        }
       }
     };
   },

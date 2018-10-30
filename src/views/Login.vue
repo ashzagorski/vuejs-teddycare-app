@@ -1,24 +1,46 @@
 <template>
   <div class="login">
+    <section class="bg-light-gray">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h1 class="heading">Login</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="container">
-      <form v-on:submit.prevent="submit()">
-        <h1>Login</h1>
-        <ul>
-          <li class="text-danger" v-for="error in errors">{{ error }}</li>
-        </ul>
-        <div class="form-group">
-          <label>Employee Number:</label>
-          <input type="text" class="form-control" v-model="employeeNumber">
+        <div class="row">
+           <div class="col-lg-8">
+            <div class="box">
+              
+              <form action="client-dashboard.html" method="post">
+                <ul>
+                 <li class="text-danger" v-for="error in errors">{{ error }}</li>
+                </ul>
+                <div class="form-group">
+                  <label for="employee-number">Employee Number: </label>
+                  <input id="employee-number" type="text" class="form-control">
+                </div>
+              </form>
+              <div class="form-group">
+                <label for="password">Password: </label>
+                <input id="password" type="password" class="form-control">
+              </div>
+              <div class="text-center">
+                <button type="submit" onclick="location.href = '#/visits'" class="btn btn-outline-white-primary"><i class="fa fa-sign-in"></i> Log in</button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <label>Password:</label>
-          <input type="password" class="form-control" v-model="password">
-        </div>
-        <input type="submit" class="btn btn-primary" onclick="location.href = '#/visits'" value="Submit">
-      </form>
-    </div>
+      </div>
+   
   </div>
 </template>
+
+<style>
+</style>
 
 <script>
 import axios from "axios";

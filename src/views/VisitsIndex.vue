@@ -1,6 +1,5 @@
 <template>
-  <div class="visits-index">
-    <div class="card" style="width: 25rem;">
+   <div class="card" style="width: 25rem;">
   <div class="card-header">
     Today's Visits
   </div>
@@ -10,7 +9,6 @@
     <router-link class="btn btn-primary" v-bind:to="'/patients/' + visit.patient_id">Start Visit</router-link>
   </ul>
 </div>
-  </div>
 </template>
 
 <style>
