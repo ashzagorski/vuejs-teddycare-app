@@ -1,7 +1,7 @@
 <template>
    <div class="card" style="width: 25rem;">
   <div class="card-header">
-    Today's Visits
+    All Visits
   </div>
   <ul class="list-group list-group-flush" v-for="visit in visits">
     <li class="list-group-item"> {{ visit.formatted.visit_datetime }} </li>

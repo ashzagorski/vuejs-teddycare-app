@@ -10,7 +10,7 @@
       </button>
   <!-- div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
    <div v-for="possible_answer in question.possible_answers">
-    <router-link :to="'/questions/' +  possible_answer.next_question_id" :key="$route.params.id" > {{ possible_answer.choice }} </router-link>
+    <router-link :to="{name: 'questions-show', params: {id: possible_answer.next_question_id}}" > {{ possible_answer.choice }} </router-link>
      
    </div>
   <!--   <a v-for="possible_answer in question.possible_answers" class="dropdown-item" onclick="location.href = '#/questions/' +  possible_answer.next_question_id" > {{ possible_answer.choice }} </a> -->
@@ -68,18 +68,18 @@ export default {
       .catch(error => {
         this.errors = error.response.data.errors;
       });
-    },
+    }
 
-    mounted: function() {
-     const vm = this
-
-     vm.$http.get("http://localhost:3000/api/questions/" + vm.$route.params.id)
-         .then(response => {
-             vm.question = response.data
-        });
-      },
   },
 
+  beforeRouteUpdate (to, from, next) {
+    axios
+    .get("http://localhost:3000/api/questions/" + to.params.id)
+    .then(response => {
+      this.question = response.data;
+    });
+    next();
+  },
   computed: {}
 };
 </script>

@@ -1,41 +1,40 @@
 <template>
   <div class="login">
-    <section class="bg-light-gray">
+   <section class="job-form-section job-form-section--image">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <h1 class="heading">Login</h1>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="container">
-        <div class="row">
-           <div class="col-lg-8">
-            <div class="box">
-              
-              <form action="client-dashboard.html" method="post">
-                <ul>
-                 <li class="text-danger" v-for="error in errors">{{ error }}</li>
-                </ul>
-                <div class="form-group">
-                  <label for="employee-number">Employee Number: </label>
-                  <input id="employee-number" type="text" class="form-control">
+            <div class="job-form-box" >
+              <h2 class="heading">Login</h2>
+              <form id="job-main-form" method="get" action="#" class="job-main-form" v-on:submit.prevent="submit()">
+                 <ul>
+                   <li class="text-danger" v-for="error in errors">{{ error }}</li>
+                 </ul>
+                <div class="controls">
+                  <div class="row align-items-center">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="profession">Employee Number:</label>
+                        <input type="text" id="profession" name="profession" placeholder="Employee Number" class="form-control" v-model="employeeNumber">
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label for="location">Password:</label>
+                        <input type="text" id="location" name="location" placeholder="Password" class="form-control" v-model="password">
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <a type="submit" onclick="location.href = '#/healthcare_providers/' + healthcare_provider_id" class="btn btn-outline-white-primary"><i class="fa fa-sign-in"></i> Login</a>
+                    </div>
+                  </div>
                 </div>
               </form>
-              <div class="form-group">
-                <label for="password">Password: </label>
-                <input id="password" type="password" class="form-control">
-              </div>
-              <div class="text-center">
-                <button type="submit" onclick="location.href = '#/visits'" class="btn btn-outline-white-primary"><i class="fa fa-sign-in"></i> Log in</button>
-              </div>
             </div>
           </div>
         </div>
       </div>
-   
+    </section>
   </div>
 </template>
 

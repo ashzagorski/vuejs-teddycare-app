@@ -1,27 +1,59 @@
 
 <template>
-  <div class="healthcare-providers-show">
-    <div class="card" style="width: 25rem;">
-  <div class="card-header">
-    Today's Visits
-  </div>
-  <ul class="list-group list-group-flush">
+  <div class="healthcare-provider-show">
+  <section>
+      <div class="container">
+        <h4 class="heading">Todays Visits</h4>
+        <div class="job-listing job-listing--featured ">
+          <div class="row">
+            <div class="col-md-12 col-lg-6">
+              <div class="row">
+                <div class="col-2"><img src="img/company-1.png" alt="LoremIpsum " class="img-fluid"></div>
+                <div class="col-10">
+                  <h4 class="job__title"><a href="detail.html">{{ healthcare_provider.visit[0]["patient_name"] }} </a></h4>
+                  <p class="job__company">
+                     
+                    Age: 10
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-10 col-md-3 col-lg-2 ml-auto"><i class="fa fa-map-marker job__location"></i>{{ healthcare_provider.formatted.todays_visits[0]["visit_datetime"] }}</div>
+            <div class="col-10 col-md-3 col-lg-3 ml-auto">
+               <a type="button" class="btn btn-primary btn-lg btn-block" href="#/questions/1">Start Visit</a>
+            </div>
+            <div class="col-sm-12 col-md-2 col-lg-1">
+              <div class="job__star"><a href="#" data-toggle="tooltip" data-placement="top" title="Save to favourites" class="job__star__link"><i class="fa fa-star"></i></a></div>
+            </div>
+          </div>
+        </div>
+         <div class="job-listing  job-listing--last">
+          <div class="row">
+            <div class="col-md-12 col-lg-6">
+              <div class="row">
+                <div class="col-2"><img src="img/company-4.png" alt="ShareBoardd " class="img-fluid"></div>
+                <div class="col-10">
+                  <h4 class="job__title"><a href="detail.html">Team Leader</a></h4>
+                  <p class="job__company">
+                     
+                    ShareBoardd
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-10 col-md-3 col-lg-2 ml-auto"><i class="fa fa-map-marker job__location"></i>Palo Alto</div>
+            <div class="col-10 col-md-3 col-lg-3 ml-auto">
+               <a type="button" class="btn btn-primary btn-lg btn-block" href="#/questions/1">Start Visit</a>
 
-  
-      <li v-for="visit_datetime in healthcare_provider.formatted.todays_visits.visit_datetime">
-        {{visti_datetime}}
-      </li>
-  
-    <!-- <li class="list-group-item"> {{ healthcare_provider.formatted.todays_visits[0]["visit_datetime"] }} </li>
-    <li class='list-group-item'> {{ healthcare_provider.formatted.todays_visits[1]["visit_datetime"] }} </li>
-    <li> {{ healthcare_provider["visit"][2]["patient_name"] }} </li> -->
-    <router-link class="btn btn-primary" v-bind:to="'/patients/1'">Start Visit</router-link>
-  </ul>
-</div>
-    
-</div>
-
-  </div>
+            </div>
+            <div class="col-sm-12 col-md-2 col-lg-1">
+              <div class="job__star"><a href="#" data-toggle="tooltip" data-placement="top" title="Save to favourites" class="job__star__link"><i class="fa fa-star"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+ </div>
 </template>
 
 <style>

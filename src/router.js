@@ -19,7 +19,7 @@ export default new Router({
     { path: '/login', name: 'login', component: Login },
     { path: "/logout", name: "logout", component: Logout },
 
-    { path: "/visits", name: "visit", component: VisitsIndex },
+    { path: "/visits", name: "visits", component: VisitsIndex },
     { path: "/patients/:id", name: "patients-show", component: PatientsShow },
     { path: "/questions/:id", name: 'questions-show', component: QuestionsShow },
     { path: "/healthcare_providers/:id", name: 'healthcare-providers-show', component: HealthcareProvidersShow }
