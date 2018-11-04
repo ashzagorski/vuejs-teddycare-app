@@ -1,25 +1,28 @@
 <template>
-  <div class="questions-show">
-    <h4> {{ question.prompt}} </h4>
-
-
-    
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Select Answer
-      </button>
-  <!-- div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
-   <div v-for="possible_answer in question.possible_answers">
-    <router-link :to="{name: 'questions-show', params: {id: possible_answer.next_question_id}}" > {{ possible_answer.choice }} </router-link>
+  <div class="question-show">
+  <section class="bg-light-gray">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-8 mx-auto">
+            <h2 class="heading">Pain Assessment </h2>
+             <h3 class="heading"> Question: {{question.id}} </h3>
+            <h4 class="lead text-center"> {{ question.prompt}} </h4>
+          </div>
+        </div>
+      </div>
+    </section>
+     <section class="bg-light-gray">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-8 mx-auto">
+            <div v-for="possible_answer in question.possible_answers">
+             <router-link :to="{name: 'questions-show', params: {id: possible_answer.next_question_id}}" > {{ possible_answer.choice }} </router-link>
      
-   </div>
-  <!--   <a v-for="possible_answer in question.possible_answers" class="dropdown-item" onclick="location.href = '#/questions/' +  possible_answer.next_question_id" > {{ possible_answer.choice }} </a> -->
-
-  
-    
-  <!-- </div>
- -->
-</div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </div>
 </template>

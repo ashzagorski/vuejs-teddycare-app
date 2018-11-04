@@ -55,7 +55,7 @@
           <label>Password:</label>
           <input type="password" class="form-control" v-model="password">
         </div>
-        <input type="submit" class="btn btn-primary" onclick="location.href = '#/visits'" value="Submit">
+        <input type="submit" class="btn btn-success" value="Submit">
       </form>
     </div>
   </div>
@@ -130,4 +130,139 @@
     
 </div>
 
+  </div>
+
+
+  <section>
+      <div class="container">
+        <h4 class="heading">Todays Visits</h4>
+        <div class="job-listing job-listing--featured ">
+          <div class="row">
+            <div class="col-md-12 col-lg-6">
+              <div class="row">
+                <div class="col-2"><img src="img/company-1.png" alt="LoremIpsum " class="img-fluid"></div>
+                <div class="col-10">
+                  <h4 class="job__title"><a href="detail.html">{{ healthcare_provider.visit }} </a></h4>
+                  <p class="job__company">
+                     
+                    Age: 10
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-10 col-md-3 col-lg-2 ml-auto"><i class="fa fa-map-marker job__location"></i> healthcare_provider</div>
+            <div class="col-10 col-md-3 col-lg-3 ml-auto">
+               <a type="button" class="btn btn-primary btn-lg btn-block" href="#/patients/1">Start Visit</a>
+            </div>
+            <div class="col-sm-12 col-md-2 col-lg-1">
+              <div class="job__star"><a href="#" data-toggle="tooltip" data-placement="top" title="Save to favourites" class="job__star__link"><i class="fa fa-star"></i></a></div>
+            </div>
+        </div>
+       </div>
+      </div>
+    </section>
+
+    <h1>Name: {{ patient.name }}</h1>
+    <h5>DOB: {{ patient.formatted.date_of_birth }}</h5>
+    <h4>Address: {{ patient.address_1 }}</h4>
+    <h4> {{ patient.address_2 }} </h4>
+    <h4>{{patient.city }}, {{ patient.state }} {{ patient.zip_code }} </h4>
+    <h4> Medication/s: {{ patient.medication }} </h4>
+
+    <a type="button" class="btn btn-primary btn-lg btn-block" href="#/questions/1">Pain Assessment</a>
+
+
+      <div class="questions-show">
+    <h4> {{ question.prompt}} </h4>
+
+
+    
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Select Answer
+      </button>
+  <!-- div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
+   <div v-for="possible_answer in question.possible_answers">
+    <router-link :to="{name: 'questions-show', params: {id: possible_answer.next_question_id}}" > {{ possible_answer.choice }} </router-link>
+     
+   </div>
+  <!--   <a v-for="possible_answer in question.possible_answers" class="dropdown-item" onclick="location.href = '#/questions/' +  possible_answer.next_question_id" > {{ possible_answer.choice }} </a> -->
+
+  
+    
+  <!-- </div>
+ -->
+
+import axios from "axios";
+
+export default {
+  template: "#login-page",
+  data: function() {
+    return {
+      employeeNumber: "",
+      password: "",
+      errors: []
+    };
+  },
+  methods: {
+    submit: function() {
+      var params = {
+        employee_number: this.employeeNumber,
+        password: this.password
+      };
+      axios
+        .post("http://localhost:3000/api/sessions", params)
+        .then(response => {
+          axios.defaults.headers.common["Authorization"] =
+            "Bearer " + response.data.jwt;
+          localStorage.setItem("jwt", response.data.jwt);
+          localStorage.setItem("healthcare_provider_id", response.data.healthcare_provider_id);
+          this.$router.push("/");
+        })
+        .catch(error => {
+          this.errors = ["Invalid employee number or password."];
+          this.employeeNumber = "";
+          this.password = "";
+        });
+    }
+  }
+};
+
+<div class="login">
+   <section class="job-form-section job-form-section--image">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <div class="job-form-box" >
+              <h2 class="heading">Login</h2>
+              <form id="job-main-form" method="get" action="#" class="job-main-form" v-on:submit.prevent="submit()">
+                 <ul>
+                   <li class="text-danger" v-for="error in errors">{{ error }}</li>
+                 </ul>
+                <div class="controls">
+                  <div class="row align-items-center">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="profession">Employee Number:</label>
+                        <input type="text" id="profession" name="profession" placeholder="Employee Number" class="form-control" v-model="employeeNumber">
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label for="location">Password:</label>
+                        <input type="password" id="location" name="location" placeholder="Password" class="form-control" v-model="password">
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                          <input type="submit" class="btn btn-success" value="Submit">
+
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>

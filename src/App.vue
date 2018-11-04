@@ -2,7 +2,7 @@
   <div id="app">
     <header class="header">
       <nav class="navbar navbar-expand-lg">
-        <div class="container"><a href="index.html" class="navbar-brand"><img src="img/bear-512.png" alt="logo" class="d-none d-lg-block"><img src="img/bear-512.png" alt="logo" class="d-block d-lg-none"><span class="sr-only">Go to homepage</span></a>
+        <div class="container"><a href="#" class="navbar-brand"><img src="img/bear-512-final.jpg" alt="logo" class="d-none d-lg-block"><img src="img/bear-512-final.jpg" alt="logo" class="d-block d-lg-none"><span class="sr-only">Go to homepage</span></a>
           <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="fa fa-bars"></i></button>
           <div id="navbarSupportedContent" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">

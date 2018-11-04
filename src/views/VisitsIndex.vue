@@ -6,7 +6,7 @@
   <ul class="list-group list-group-flush" v-for="visit in visits">
     <li class="list-group-item"> {{ visit.formatted.visit_datetime }} </li>
     <li class="list-group-item"> {{ visit.patient_name }}</li>
-    <router-link class="btn btn-primary" v-bind:to="'/patients/' + visit.patient_id">Start Visit</router-link>
+    <router-link class="btn btn-primary" v-bind:to="'/patients/' + visit.patient_id"> Start Visit </router-link>
   </ul>
 </div>
 </template>
@@ -18,11 +18,11 @@
   var axios = require('axios');
 
 export default {
-  data: function() {
-    return {
-      visits: []
-    };
-  },
+      data: function() {
+       return {
+        visits: []
+     };
+   },
   created: function() {
     axios
     .get("http://localhost:3000/api/visits")

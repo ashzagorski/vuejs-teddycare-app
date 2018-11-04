@@ -1,55 +1,69 @@
 
 <template>
   <div class="healthcare-provider-show">
-  <section>
+     <section class="job-form-section job-form-section--compressed">
       <div class="container">
-        <h4 class="heading">Todays Visits</h4>
-        <div class="job-listing job-listing--featured ">
+        <h4 class="heading">Search for Patient</span></h4>
+        <form id="job-main-form" method="get" action="#" class="job-main-form">
+          <div class="controls">
+            <div class="row align-items-end">
+              <div class="col-sm-1 col-lg-2"></div>
+              <div class="col-sm-5 col-lg-4 form-group">
+                <label for="profession">Name</label>
+                <input type="text" id="profession" name="patient-name" placeholder="Patient Name" class="form-control">
+              </div>
+              <div class="col-sm-5 col-lg-4 form-group">
+                <label for="location">Visit Date</label>
+                <input type="text" id="location" name="location" placeholder="Visit Date" class="form-control">
+              </div>
+              <div class="col-sm-1 col-lg-2 form-group">
+                <button type="submit" name="name" class="btn btn-outline-white-primary job-main-form__button"><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <section>
+      <h3 class="heading">You Have {{ healthcare_provider.todays_visits.length }} Visits Today  </h3>
+      <div class="container" v-for="todays_visit in healthcare_provider.todays_visits">
+         <div class="job-listing job-listing--featured ">
           <div class="row">
             <div class="col-md-12 col-lg-6">
               <div class="row">
-                <div class="col-2"><img src="img/company-1.png" alt="LoremIpsum " class="img-fluid"></div>
-                <div class="col-10">
-                  <h4 class="job__title"><a href="detail.html">{{ healthcare_provider.visit[0]["patient_name"] }} </a></h4>
+                <div class="col-2"><img src="img/person-1.jpg" alt="LoremIpsum " class="img-fluid"></div>
+                <div class="col-10" >
+                  <h4 class="job__title"><a href="detail.html">{{ todays_visit.patient.name }} </a></h4>
                   <p class="job__company">
-                     
-                    Age: 10
+                     {{ todays_visit.patient.date_of_birth}}
+                    
                   </p>
                 </div>
               </div>
             </div>
-            <div class="col-10 col-md-3 col-lg-2 ml-auto"><i class="fa fa-map-marker job__location"></i>{{ healthcare_provider.formatted.todays_visits[0]["visit_datetime"] }}</div>
+            <div class="col-10 col-md-3 col-lg-3 ml-auto"><i class="fa fa-map-marker job__location"></i> {{todays_visit.formatted.visit_datetime }} </div>
             <div class="col-10 col-md-3 col-lg-3 ml-auto">
-               <a type="button" class="btn btn-primary btn-lg btn-block" href="#/questions/1">Start Visit</a>
+                <router-link class="btn btn-primary" v-bind:to="'/patients/' + todays_visit.patient.id "> Start Visit </router-link>
             </div>
             <div class="col-sm-12 col-md-2 col-lg-1">
               <div class="job__star"><a href="#" data-toggle="tooltip" data-placement="top" title="Save to favourites" class="job__star__link"><i class="fa fa-star"></i></a></div>
             </div>
-          </div>
         </div>
-         <div class="job-listing  job-listing--last">
-          <div class="row">
-            <div class="col-md-12 col-lg-6">
-              <div class="row">
-                <div class="col-2"><img src="img/company-4.png" alt="ShareBoardd " class="img-fluid"></div>
-                <div class="col-10">
-                  <h4 class="job__title"><a href="detail.html">Team Leader</a></h4>
-                  <p class="job__company">
-                     
-                    ShareBoardd
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-10 col-md-3 col-lg-2 ml-auto"><i class="fa fa-map-marker job__location"></i>Palo Alto</div>
-            <div class="col-10 col-md-3 col-lg-3 ml-auto">
-               <a type="button" class="btn btn-primary btn-lg btn-block" href="#/questions/1">Start Visit</a>
-
-            </div>
-            <div class="col-sm-12 col-md-2 col-lg-1">
-              <div class="job__star"><a href="#" data-toggle="tooltip" data-placement="top" title="Save to favourites" class="job__star__link"><i class="fa fa-star"></i></a></div>
-            </div>
-          </div>
+       </div>
+     </div>
+   </section>/
+        <div class="pages">
+          <p class="load-more"><a href="#" class="mb-4 btn btn-outline-white-primary"><i class="fa fa-chevron-down"> </i>Load more</a></p>
+          <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-4 mb-4">
+            <ul class="pagination">
+              <li class="page-item"><a href="#" aria-label="Previous" class="page-link"><span aria-hidden="true">«</span><span class="sr-only">Previous</span></a></li>
+              <li class="page-item active"><a href="#" class="page-link">1</a></li>
+              <li class="page-item"><a href="#" class="page-link">2</a></li>
+              <li class="page-item"><a href="#" class="page-link">3</a></li>
+              <li class="page-item"><a href="#" class="page-link">4</a></li>
+              <li class="page-item"><a href="#" aria-label="Next" class="page-link"><span aria-hidden="true">»</span><span class="sr-only">Next</span></a></li>
+            </ul>
+          </nav>
         </div>
       </div>
     </section>
@@ -66,9 +80,16 @@ export default {
   data: function() {
     return {
       healthcare_provider: {
+          todays_visits: {},
+        },
+      todays_visit: {
+        patient: {
+          id: "",
+          name: "",
+          date_of_birth: "",
+          },
         formatted: {
-          todays_visits: [
-            ],
+          visit_datetime: "",
         }
       }
     };

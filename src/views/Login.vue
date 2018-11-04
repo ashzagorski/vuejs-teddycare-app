@@ -25,7 +25,7 @@
                       </div>
                     </div>
                     <div class="col-md-3">
-                      <a type="submit" onclick="location.href = '#/healthcare_providers/' + healthcare_provider_id" class="btn btn-outline-white-primary"><i class="fa fa-sign-in"></i> Login</a>
+                      <a type="submit" onclick="location.href = '#/healthcare_providers/2'"" class="btn btn-outline-white-primary"><i class="fa fa-sign-in"></i> Login</a>
                     </div>
                   </div>
                 </div>
@@ -53,6 +53,7 @@ export default {
       errors: []
     };
   },
+
   methods: {
     submit: function() {
       var params = {
