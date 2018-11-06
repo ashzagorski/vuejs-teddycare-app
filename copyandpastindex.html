@@ -266,3 +266,7 @@ export default {
       </div>
     </section>
   </div>
+
+
+   <button type="submit" class="btn btn-base-color btn-block btn-large box-shadow-wide mt-5 mx-0 text-white"> {{ possible_answer.choice }} </button>
+               <router-link  type="submit" class="btn btn-primary" :to="{name: 'questions-show', params: {id: possible_answer.next_question_id}}" > Next Question </router-link>

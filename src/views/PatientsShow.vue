@@ -16,6 +16,7 @@
                 <div class="image"><img src="img/person-1.jpg" alt="" class="img-fluid rounded-circle"></div>
               </div>
 
+
               <a href="#/questions/1" class="btn btn-outline-white-secondary btn-sm"> <i class="fa fa-download"></i>Complete Pain Assessment</a><a href="#" data-toggle="modal" data-target="#contact-modal" class="btn btn-outline-white-secondary btn-sm"><i class="fa fa-envelope"></i>Contact </a><a href="javascript: void();" class="btn btn-outline-white-secondary btn-sm"> <i class="fa fa-archive"></i>archive</a><a href="#" data-toggle="modal" data-target="#coverletter-modal" class="btn btn-outline-white-secondary btn-sm"><i class="fa fa-file-text-o"></i>See cover letter</a>
               <p><span class="badge badge-info">Applied 28/10/2017</span> <span class="badge badge-success">Contacted 30/12/2017</span></p>
             </div>
@@ -38,10 +39,10 @@
                 </div>
               </div>
               <ul>
-                <li><i class="fa fa-check"></i>10/2/2017</li>
-                <li><i class="fa fa-times"></i>Own config file</li>
-                <li><i class="fa fa-times"></i>Sharing Tools</li>
-                <li><i class="fa fa-times"></i>Auto Backup</li>
+                <li><i class="fa fa-check"></i>{{ patient.visit[0].formatted.visit_datetime}}</li>
+                <li><i class="fa fa-times"></i>Pain present: {{ patient.visit[0].documented_answers[0].possible_answer.choice}}</li>
+                <li><i class="fa fa-times"></i>{{ patient.visit[0].documented_answers[1].possible_answer.choice}}</li>
+                <li><i class="fa fa-times"></i>{{ patient.visit[0].documented_answers[2].possible_answer.choice}}</li>
                 <li><i class="fa fa-times"></i>Extended Security</li>
               </ul><a href="#" class="btn btn-outline-white-primary">View Results</a>
             </div>

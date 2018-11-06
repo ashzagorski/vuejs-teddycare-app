@@ -1,29 +1,6 @@
 
 <template>
   <div class="healthcare-provider-show">
-     <section class="job-form-section job-form-section--compressed">
-      <div class="container">
-        <h4 class="heading">Search for Patient</span></h4>
-        <form id="job-main-form" method="get" action="#" class="job-main-form">
-          <div class="controls">
-            <div class="row align-items-end">
-              <div class="col-sm-1 col-lg-2"></div>
-              <div class="col-sm-5 col-lg-4 form-group">
-                <label for="profession">Name</label>
-                <input type="text" id="profession" name="patient-name" placeholder="Patient Name" class="form-control">
-              </div>
-              <div class="col-sm-5 col-lg-4 form-group">
-                <label for="location">Visit Date</label>
-                <input type="text" id="location" name="location" placeholder="Visit Date" class="form-control">
-              </div>
-              <div class="col-sm-1 col-lg-2 form-group">
-                <button type="submit" name="name" class="btn btn-outline-white-primary job-main-form__button"><i class="fa fa-search"></i></button>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </section>
     <section>
       <h3 class="heading">You Have {{ healthcare_provider.todays_visits.length }} Visits Today  </h3>
       <div class="container" v-for="todays_visit in healthcare_provider.todays_visits">

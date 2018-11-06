@@ -1,42 +1,25 @@
 <template>
+
   <div class="login">
-   <section class="job-form-section job-form-section--image">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <div class="job-form-box" >
-              <h2 class="heading">Login</h2>
-              <form id="job-main-form" method="get" action="#" class="job-main-form" v-on:submit.prevent="submit()">
-                 <ul>
-                   <li class="text-danger" v-for="error in errors">{{ error }}</li>
-                 </ul>
-                <div class="controls">
-                  <div class="row align-items-center">
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <label for="profession">Employee Number:</label>
-                        <input type="text" id="profession" name="profession" placeholder="Employee Number" class="form-control" v-model="employeeNumber">
-                      </div>
-                    </div>
-                    <div class="col-md-5">
-                      <div class="form-group">
-                        <label for="location">Password:</label>
-                        <input type="text" id="location" name="location" placeholder="Password" class="form-control" v-model="password">
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                      <a type="submit" onclick="location.href = '#/healthcare_providers/2'"" class="btn btn-outline-white-primary"><i class="fa fa-sign-in"></i> Login</a>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
+    <div class="container">
+      <form v-on:submit.prevent="submit()">
+        <ul>
+          <li class="text-danger" v-for="error in errors">{{ error }}</li>
+        </ul>
+        <div class="form-group">
+          <label>Employee Number:</label>
+          <input type="text" class="form-control" v-model="employeeNumber">
         </div>
-      </div>
-    </section>
+        <div class="form-group">
+          <label>Password:</label>
+          <input type="password" class="form-control" v-model="password">
+        </div>
+        <input type="submit" class="btn btn-success" value="Login">
+      </form>
+    </div>
   </div>
 </template>
+
 
 <style>
 </style>
@@ -66,8 +49,9 @@ export default {
           axios.defaults.headers.common["Authorization"] =
             "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
-          localStorage.setItem("healthcare_provider_id", response.data.healthcare_provider_id);
-          this.$router.push("/");
+          localStorage.setItem("id", response.data.id);
+          localStorage.setItem("name", response.data.name);
+          this.$router.push("/home");
         })
         .catch(error => {
           this.errors = ["Invalid employee number or password."];
@@ -78,3 +62,5 @@ export default {
   }
 };
 </script>
+
+"familyId"
