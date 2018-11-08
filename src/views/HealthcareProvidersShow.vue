@@ -20,7 +20,7 @@
             </div>
             <div class="col-10 col-md-3 col-lg-3 ml-auto"><i class="fa fa-map-marker job__location"></i> {{todays_visit.formatted.visit_datetime }} </div>
             <div class="col-10 col-md-3 col-lg-3 ml-auto">
-                <router-link v-on:click="storeId(todays_visit.id)" class="btn btn-primary" v-bind:to="'/patients/' + todays_visit.patient.id "> Start Visit </router-link>
+                <button class="btn btn-primary" v-on:click="storeId(todays_visit)" v-bind:to="'/patients/' + todays_visit.patient.id ">Start Visit</button>
             </div>
             <div class="col-sm-12 col-md-2 col-lg-1">
               <div class="job__star"><a href="#" data-toggle="tooltip" data-placement="top" title="Save to favourites" class="job__star__link"><i class="fa fa-star"></i></a></div>
@@ -83,9 +83,11 @@ export default {
   },
 
   methods: {
-    storeId: function(todaysVisitId) {
-      localStorage.setItem('visitId', todaysVisitId);
-      console.log('visitId');
+    storeId: function(todaysVisit) {
+      localStorage.setItem('visitId', todaysVisit.id);
+      this.$router.push("/patients/" + todaysVisit.patient.id);
+
+      console.log(todaysVisit);
     }
 
   },

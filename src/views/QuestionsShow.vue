@@ -68,7 +68,7 @@ export default {
   
     selectAnswer: function(possibleAnswer) {
       axios
-        .post("http://localhost:3000/api/documented_answers", {possible_answer_id: possibleAnswer.id, visit_id: localStorage.visitId})
+        .post("http://localhost:3000/api/documented_answers", {possible_answer_id: possibleAnswer.id, visit_id: localStorage.getItem("visitId")})
         .then(response => {
         this.$router.push("/questions/" + possibleAnswer.next_question_id);
         })
