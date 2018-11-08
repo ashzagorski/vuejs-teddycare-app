@@ -20,7 +20,7 @@
             </div>
             <div class="col-10 col-md-3 col-lg-3 ml-auto"><i class="fa fa-map-marker job__location"></i> {{todays_visit.formatted.visit_datetime }} </div>
             <div class="col-10 col-md-3 col-lg-3 ml-auto">
-                <router-link class="btn btn-primary" v-bind:to="'/patients/' + todays_visit.patient.id "> Start Visit </router-link>
+                <router-link v-on:click="storeId(todays_visit.id)" class="btn btn-primary" v-bind:to="'/patients/' + todays_visit.patient.id "> Start Visit </router-link>
             </div>
             <div class="col-sm-12 col-md-2 col-lg-1">
               <div class="job__star"><a href="#" data-toggle="tooltip" data-placement="top" title="Save to favourites" class="job__star__link"><i class="fa fa-star"></i></a></div>
@@ -57,20 +57,23 @@ export default {
   data: function() {
     return {
       healthcare_provider: {
-          todays_visits: {},
-        },
-      todays_visit: {
-        patient: {
-          id: "",
-          name: "",
-          date_of_birth: "",
-          },
-        formatted: {
-          visit_datetime: "",
+        todays_visits: {
+          todays_visit: {
+            id: "",
+            patient: {
+              id: "",
+              name: "",
+              date_of_birth: "",
+            },
+            formatted: {
+              visit_datetime: "",
+            }
+          }
         }
       }
     };
   },
+
   created: function() {
     axios
     .get("http://localhost:3000/api/healthcare_providers/" + this.$route.params.id)
@@ -78,7 +81,14 @@ export default {
       this.healthcare_provider = response.data;
     });
   },
-  methods: {},
+
+  methods: {
+    storeId: function(todaysVisitId) {
+      localStorage.setItem('visitId', todaysVisitId);
+      console.log('visitId');
+    }
+
+  },
   computed: {}
 };
 </script>

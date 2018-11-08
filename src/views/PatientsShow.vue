@@ -39,10 +39,10 @@
                 </div>
               </div>
               <ul>
-                <li><i class="fa fa-check"></i>{{ patient.visit[0].formatted.visit_datetime}}</li>
-                <li><i class="fa fa-times"></i>Pain present: {{ patient.visit[0].documented_answers[0].possible_answer.choice}}</li>
-                <li><i class="fa fa-times"></i>{{ patient.visit[0].documented_answers[1].possible_answer.choice}}</li>
-                <li><i class="fa fa-times"></i>{{ patient.visit[0].documented_answers[2].possible_answer.choice}}</li>
+                <li><i class="fa fa-check"></i>11-7-2018</li>
+                <li><i class="fa fa-times"></i>Pain present: Yes</li>
+                <li><i class="fa fa-times"></i>Head</li>
+                <li><i class="fa fa-times"></i>Ongoing: Today</li>
                 <li><i class="fa fa-times"></i>Extended Security</li>
               </ul><a href="#" class="btn btn-outline-white-primary">View Results</a>
             </div>

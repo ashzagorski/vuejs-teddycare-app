@@ -10,7 +10,8 @@ export default {
   created: function() {
     delete axios.defaults.headers.common["Authorization"];
     localStorage.removeItem("jwt");
-    localStorage.removeItem("healthcare_provider_id");
+    localStorage.removeItem("id");
+    localStorage.removeItem("name");
     this.$router.push("/");
   }
 };

@@ -1,47 +1,14 @@
 
 <template>
   <div class="home">
-     <section class="job-form-section job-form-section--image">
+     <section style="background-image: url('img/childrens-patient-room.jpg');" class=" section-divider">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <div class="job-form-box">
               <h2 class="heading">Welcome, {{name}} </h2>
+            <p style="text-align:center"><router-link class="btn btn-primary" v-bind:to="'/healthcare_providers/' + id"> Go To Today's Visits </router-link></p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-     <section class="job-form-section job-form-section--compressed">
-      <div class="container">
-        <h4 class="heading">Search for Patient </span></h4>
-        <form id="job-main-form" method="get" action="#" class="job-main-form">
-          <div class="controls">
-            <div class="row align-items-end">
-              <div class="col-sm-1 col-lg-2"></div>
-              <div class="col-sm-5 col-lg-4 form-group">
-                <label for="profession">Name</label>
-                <input type="text" id="profession" name="patient-name" placeholder="Patient Name" class="form-control">
-              </div>
-              <div class="col-sm-5 col-lg-4 form-group">
-                <label for="location">Visit Date</label>
-                <input type="text" id="location" name="location" placeholder="Visit Date" class="form-control">
-              </div>
-              <div class="col-sm-1 col-lg-2 form-group">
-                <button type="submit" name="name" class="btn btn-outline-white-primary job-main-form__button"><i class="fa fa-search"></i></button>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </section>
-      <section style="background-image: url('img/startup.jpg'); " class="section-divider">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <p>View Today's Visits </p>
-            <p> <router-link class="btn btn-primary" v-bind:to="'/healthcare_providers/' + id"> Today's Visits </router-link></p>
           </div>
         </div>
       </div>
@@ -51,7 +18,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="heading">
-              <h4>From our blog</h4>
+              <h4>News</h4>
             </div>
             <p class="text-center text-muted">What's new at Children's Hospital? Check out our news!</p>
           </div>
@@ -59,18 +26,20 @@
         <div id="blog-homepage" class="row">
           <div class="col-md-6">
             <div class="post">
-              <div class="image"><a href="post.html"><img src="img/blog1.jpg" alt="" class="img-fluid"></a></div>
-              <h4><a href="post.html">Combining Technology and Healthcare</a></h4>
-              <p class="post__intro">ellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-              <p class="read-more"><a href="post.html" class="btn btn-outline-white-primary">Continue reading</a></p>
+              <div class="image"><a href="phttps://www.childrenshospitals.org/newsroom/childrens-hospitals-today/articles/2018/01/rounding-robots-connect-with-hospital-patients-and-staff"><img src="img/robots.jpg" alt="" class="img-fluid"></a></div>
+              <h4><a href="post.html">Rounding Robots Connect with Hospital Patients and Staff</a></h4>
+              <p class="post__intro">Robot technology helps leaders at Nicklaus Children's Hospital check on patients more than 100 miles away. Michael Harrington can wrap up a meeting with his staff members at Nicklaus Children's Hospital in Miami, Florida, and minutes later, he's able to join patient rounds at a separate facility more than 100 miles away. How does he do it? The answer: robot technology.</p>
+              <p class="read-more"><a href="phttps://www.childrenshospitals.org/newsroom/childrens-hospitals-today/articles/2018/01/rounding-robots-connect-with-hospital-patients-and-staff" class="btn btn-outline-white-primary">Continue reading</a></p>
             </div>
           </div>
           <div class="col-md-6">
             <div class="post">
-              <div class="image"><a href="post.html"><img src="img/blog2.jpg" alt="" class="img-fluid"></a></div>
-              <h4><a href="post.html">How Technology is Making Healthcare Less Stressful for Children</a></h4>
-              <p class="post__intro">ellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-              <p class="read-more"><a href="post.html" class="btn btn-outline-white-primary">Continue reading</a></p>
+              <div class="image"><a href="https://med.stanford.edu/news/all-news/2017/09/virtual-reality-alleviates-pain-anxiety-for-pediatric-patients.html"><img src="img/vr.jpg" alt="" class="img-fluid"></a></div>
+              <h4><a href="https://med.stanford.edu/news/all-news/2017/09/virtual-reality-alleviates-pain-anxiety-for-pediatric-patients.html">Virtual reality alleviates pain, anxiety for pediatric patients</a></h4>
+              <p class="post__intro">
+
+              “Many kids associate the hospital with things they deem stressful and scary,” said pediatric anesthesiologist Sam Rodriguez, MD, co-founder of Packard Children’s Childhood Anxiety Reduction through Innovation and Technology, or CHARIOT, program, which is leading the VR rollout. “We are finding that the ability to distract these patients with fully immersive, fun and relaxing sensory environments can have a significant impact on the anxiety and pain that they experience during minor procedures, dressing changes and other medical treatments.”</p>
+              <p class="read-more"><a href="https://med.stanford.edu/news/all-news/2017/09/virtual-reality-alleviates-pain-anxiety-for-pediatric-patients.html" class="btn btn-outline-white-primary">Continue reading</a></p>
             </div>
           </div>
         </div>
@@ -89,11 +58,18 @@ export default {
   data: function() {
     return {
       id: localStorage.id,
-      name: localStorage.name
+      name: localStorage.name,
+      nameFilter: "",
     }
   },
-  created: function() {},
+  created: function() {
+    axios
+      .get("http://localhost:3000/api/patients/")
+      .then(response => {
+        this.patients = response.data;
+      });
+ },
   methods: {},
   computed: {}
-};
+ };
 </script>

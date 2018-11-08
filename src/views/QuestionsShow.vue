@@ -16,13 +16,15 @@
       <div class="container">
         <div class="row">
           <div class="col-xl-8 mx-auto">
-             <div v-for="possible_answer in question.possible_answers">>
-            
-               <router-link :to="{name: 'questions-show', params: {id: possible_answer.next_question_id}}" > {{ possible_answer.choice }}  </router-link>
-     
-             </div>
-             
-          </div>
+             <div v-for="possible_answer in question.possible_answers">
+                <div class="btn btn-primary" v-on:click="selectAnswer(possible_answer)">{{possible_answer.choice}}</div>
+            </div>
+        </div> 
+         <div class="row"> 
+         <div class="col-xl-8 mx-auto">
+         </div>
+         </div> 
+          
         </div>
       </div>
     </section>
@@ -48,7 +50,8 @@ export default {
       possible_answer: {
         next_question_id: "",
         choice: ""
-      }
+      },
+      errors: []
     };
   },
   created: function() {
@@ -57,28 +60,23 @@ export default {
       .then(response => {
         this.question = response.data;
       });
+    
   },
 
     
   methods: {
   
-
-    submit: function() {
-      var params = {
-        visit_id: this.visit_id,
-        possible_answer_id: this.possible_answer_id
-        };
-
+    selectAnswer: function(possibleAnswer) {
       axios
-        .post("/api/documented_answers", params)
+        .post("http://localhost:3000/api/documented_answers", {possible_answer_id: possibleAnswer.id, visit_id: localStorage.visitId})
         .then(response => {
-          this.$router.push("/documented_answers/" + response.data.id);
+        this.$router.push("/questions/" + possibleAnswer.next_question_id);
         })
         .catch(error => {
-          this.errors = error.response.data.errors;
+          console.log(error);
+            this.errors = error.response.data.errors;
         });
     }
-
   },
 
   beforeRouteUpdate(to, from, next) {
@@ -88,6 +86,7 @@ export default {
         this.question = response.data;
       });
     next();
+
   },
   computed: {}
 };
