@@ -18,19 +18,19 @@
   var axios = require('axios');
 
 export default {
-      data: function() {
-       return {
+    data: function() {
+      return {
         visits: []
-     };
-   },
-  created: function() {
-    axios
-    .get("http://localhost:3000/api/visits")
-    .then(response => {
-      this.visits = response.data;
-    });
-  },
-  methods: {},
-  computed: {}
-};
+      };
+    },
+    created: function() {
+      axios
+        .get("http://localhost:3000/api/visits")
+        .then(response => {
+          this.visits = response.data;
+        });
+    },
+    methods: {},
+    computed: {}
+  };
 </script>

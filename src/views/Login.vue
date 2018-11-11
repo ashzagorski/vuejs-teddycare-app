@@ -1,23 +1,24 @@
 <template>
 
-  <div class="login">
-    <div class="container">
-      <form v-on:submit.prevent="submit()">
-        <ul>
-          <li class="text-danger" v-for="error in errors">{{ error }}</li>
-        </ul>
-        <div class="form-group">
-          <label>Employee Number:</label>
-          <input type="text" class="form-control" v-model="employeeNumber">
-        </div>
-        <div class="form-group">
-          <label>Password:</label>
-          <input type="password" class="form-control" v-model="password">
-        </div>
-        <input type="submit" class="btn btn-success" value="Login">
-      </form>
-    </div>
-  </div>
+  <section class="job-form-section job-form-section--compressed">
+      <div class="container">
+        <h4 class="heading">Login</span></h4>
+        <form v-on:submit.prevent="submit()">
+          <ul>
+            <li class="text-danger" v-for="error in errors">{{ error }}</li>
+          </ul>
+          <div class="form-group">
+            <label>Employee Number:</label>
+            <input type="text" class="form-control" v-model="employeeNumber">
+          </div>
+          <div class="form-group">
+            <label>Password:</label>
+            <input type="password" class="form-control" v-model="password">
+          </div>
+          <input style="center" class="btn btn-outline-white-primary" type="submit"  value="Login">
+        </form>
+      </div>
+    </section>
 </template>
 
 

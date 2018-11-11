@@ -8,6 +8,13 @@
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active"><a href="#/home" class="nav-link">Home <span class="sr-only">(current)</span></a></li>
               <li class="nav-item active"><a href="#searchModal" data-toggle="modal" class="nav-link">Search for Patient</a></li>
+              <li class="nav-item dropdown"><a id="pages" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">{{name}}</a>
+                <div aria-labelledby="pages" class="dropdown-menu">
+                  <a href="#/home" class="dropdown-item">Home</a>
+                  <a v-bind:to="'/healthcare_providers/' + id" class="dropdown-item">Todays Visits</a>
+                  <a href="#/visits" class="dropdown-item">All Visits</a>             
+                </div>
+              </li>
               <li class="nav-item dropdown"><a onclick="location.href = '#/logout'" data-toggle="modal" class="btn navbar-btn btn-outline-light mb-5 mb-lg-0"> <i class="fa fa-sign-in"></i>Logout</a></li>
             </ul>
           </div>
@@ -24,13 +31,13 @@
           <div class="modal-body">
             <form action="customer-orders.html" method="post">
               <div class="form-group" id="search-by-name">
-                <input id="name_modal" type="text" placeholder="name" class="form-control" v-model="patientFilter" list="patients">
-                <datalist id="patients">
-                  <option v-for="patient in patients"> {{patient.name}}</option>
+                <input id="search-by-name" type="text" placeholder="name" class="form-control" v-model="nameFilter" list="names">
+                <datalist id="names">
+                  <option v-for="patient in patients"value="patient.id"> {{patient.name}}</option>
                 </datalist>
               </div>
               <p class="text-center">
-                <button type="button" class="btn btn-outline-white-primary" onclick="location.href = '#/patients/1"><i class="fa fa-sign-in"></i> Search</button>
+                <router-link v-bind:to="'/patients/' + patient.id"><i class="fa fa-sign-in"></i> Search</router-link>
               </p>
             </form>
  
@@ -79,12 +86,14 @@ var axios = require('axios');
 export default {
   data: function() {
     return {
+      name: localStorage.name,
+      id: localStorage.id,
       patient: {
         formatted: {
           date_of_birth: ""
         }
       },
-      patientFilter: "",
+      nameFilter: "",
       patients: []
     };
   },
@@ -96,7 +105,11 @@ export default {
       this.patients = response.data;
     });
   },
-  methods: {},
+  methods: {
+    selectPatient: function(patient) {
+        this.$router.push("/patients/" + patient.id);
+        }
+  },
   computed: {}
 };
 </script>

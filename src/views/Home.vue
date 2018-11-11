@@ -26,7 +26,7 @@
         <div id="blog-homepage" class="row">
           <div class="col-md-6">
             <div class="post">
-              <div class="image"><a href="phttps://www.childrenshospitals.org/newsroom/childrens-hospitals-today/articles/2018/01/rounding-robots-connect-with-hospital-patients-and-staff"><img src="img/robots.jpg" alt="" class="img-fluid"></a></div>
+              <div align="middle" class="image"><a href="phttps://www.childrenshospitals.org/newsroom/childrens-hospitals-today/articles/2018/01/rounding-robots-connect-with-hospital-patients-and-staff"><img src="img/robots.jpg" alt="" class="img-fluid"></a></div>
               <h4><a href="post.html">Rounding Robots Connect with Hospital Patients and Staff</a></h4>
               <p class="post__intro">Robot technology helps leaders at Nicklaus Children's Hospital check on patients more than 100 miles away. Michael Harrington can wrap up a meeting with his staff members at Nicklaus Children's Hospital in Miami, Florida, and minutes later, he's able to join patient rounds at a separate facility more than 100 miles away. How does he do it? The answer: robot technology.</p>
               <p class="read-more"><a href="phttps://www.childrenshospitals.org/newsroom/childrens-hospitals-today/articles/2018/01/rounding-robots-connect-with-hospital-patients-and-staff" class="btn btn-outline-white-primary">Continue reading</a></p>
@@ -34,7 +34,7 @@
           </div>
           <div class="col-md-6">
             <div class="post">
-              <div class="image"><a href="https://med.stanford.edu/news/all-news/2017/09/virtual-reality-alleviates-pain-anxiety-for-pediatric-patients.html"><img src="img/vr.jpg" alt="" class="img-fluid"></a></div>
+              <div align="middle" class="image"><a href="https://med.stanford.edu/news/all-news/2017/09/virtual-reality-alleviates-pain-anxiety-for-pediatric-patients.html"><img src="img/vr.jpg" alt="" class="img-fluid"></a></div>
               <h4><a href="https://med.stanford.edu/news/all-news/2017/09/virtual-reality-alleviates-pain-anxiety-for-pediatric-patients.html">Virtual reality alleviates pain, anxiety for pediatric patients</a></h4>
               <p class="post__intro">
 

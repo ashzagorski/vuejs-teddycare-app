@@ -10,6 +10,8 @@ import VisitsIndex from './views/VisitsIndex.vue';
 import PatientsShow from './views/PatientsShow.vue';
 import QuestionsShow from './views/QuestionsShow.vue';
 import HealthcareProvidersShow from './views/HealthcareProvidersShow.vue';
+import EchoShow from './views/echo.vue';
+
 
 Vue.use(Router);
 
@@ -25,6 +27,7 @@ export default new Router({
     { path: "/visits", name: "visits", component: VisitsIndex },
     { path: "/patients/:id", name: "patients-show", component: PatientsShow },
     { path: "/questions/:id", name: 'questions-show', component: QuestionsShow },
-    { path: "/healthcare_providers/:id", name: 'healthcare-providers-show', component: HealthcareProvidersShow }
+    { path: "/healthcare_providers/:id", name: 'healthcare-providers-show', component: HealthcareProvidersShow },
+    { path: "/echo", name: 'echo', component: EchoShow }
   ]
 });

@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-xl-8 mx-auto">
             <h2 class="heading">Pain Assessment </h2>
-             <h3 class="heading"> Question: {{question.id}} </h3>
+             <h4 class="heading"> Question: {{question.id}} </h4>
             <h4 class="lead text-center"> {{ question.prompt}} </h4>
           </div>
         </div>
@@ -17,7 +17,10 @@
         <div class="row">
           <div class="col-xl-8 mx-auto">
              <div v-for="possible_answer in question.possible_answers">
-                <div class="btn btn-primary" v-on:click="selectAnswer(possible_answer)">{{possible_answer.choice}}</div>
+
+              <div class="pages">
+                <p class="load-more"><a v-on:click="selectAnswer(possible_answer)" class="mb-4 btn btn-outline-white-primary"><i class="fa fa-chevron-down" > </i>{{possible_answer.choice}}</a></p>
+             </div>
             </div>
         </div> 
          <div class="row"> 
@@ -40,7 +43,7 @@ var axios = require('axios');
 
 export default {
    
-  data: function() {
+  data: function() {  
     return {
       visit_id: "", 
       possible_answer_id: "",
@@ -70,7 +73,11 @@ export default {
       axios
         .post("http://localhost:3000/api/documented_answers", {possible_answer_id: possibleAnswer.id, visit_id: localStorage.getItem("visitId")})
         .then(response => {
-        this.$router.push("/questions/" + possibleAnswer.next_question_id);
+          this.$router.push("/questions/" + possibleAnswer.next_question_id);
+          if (possibleAnswer.next_question_id === 6 ) {
+            setTimeout(this.$router.push("/patients/" + localStorage.getItem("patientId")), 9000);
+          }
+          
         })
         .catch(error => {
           console.log(error);
@@ -86,8 +93,8 @@ export default {
         this.question = response.data;
       });
     next();
+  }, 
 
-  },
   computed: {}
 };
 </script>

@@ -69,7 +69,8 @@ export default {
               visit_datetime: "",
             }
           }
-        }
+        },
+      seen: true
       }
     };
   },
@@ -86,10 +87,14 @@ export default {
     storeId: function(todaysVisit) {
       localStorage.setItem('visitId', todaysVisit.id);
       this.$router.push("/patients/" + todaysVisit.patient.id);
+    },
+    toggleVisit: function(inputVisit) {
+      inputVisit.bioVisible = !inputVisit.bioVisible;
+    },
+    changeSeen: function(inputVisit) {
+      inputVisit.seen = false;
 
-      console.log(todaysVisit);
     }
-
   },
   computed: {}
 };
