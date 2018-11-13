@@ -16,11 +16,11 @@
                
               <div class="d-flex justify-content-between">
                  <p class="intro"><span class="accent">MEDICAL NUMBER:</span> {{ patient.id }}</p>
-                <div class="image"><img src="img/girl.jpg" alt="" class="img-fluid rounded-circle"></div>
+                <div class="image"><img v-bind:src="patient.image" class="img-fluid rounded-circle"></div>
               </div>
 
 
-              <a href="#/questions/1" class="btn btn-outline-white-secondary btn-sm"> <i class="fa fa-file-text-o"></i>Complete Pain Assessment</a><a href="#/echo" v-on:click="storePatientId(patient)"class="btn btn-outline-white-secondary btn-sm"> <i class="fa fa-file-text-o"></i>Complete Pain Assessment with Echo</a>
+              <a href="#/questions/1" v-on:click="storePatientId(patient)" class="btn btn-outline-white-secondary btn-sm"> <i class="fa fa-file-text-o"></i>Complete Pain Assessment</a><a href="#/echo" v-on:click="storePatientId(patient)"class="btn btn-outline-white-secondary btn-sm"> <i class="fa fa-file-text-o"></i>Complete Pain Assessment with Echo</a>
               <p><span class="badge badge-success">{{visit_id}}</span></p>
             </div>
           </div>
@@ -33,7 +33,6 @@
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="heading">Pain Assessment Results</h2>
-            <p class="lead text-center">This is the lead paragraph of the article. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.</p>
           </div>
         </div>
         <div class="row team">
@@ -42,8 +41,10 @@
               <div class="image"><img src="img/cold-weather.jpg" alt="" class="img-fluid rounded-circle"></div>
               <h3 class="h4"><a href="#">Completed</a></h3>
               <p class="role">{{visit.formatted.visit_datetime}}</p>
-              <div class="social"><a href="#" class="external facebook"><i class="fa fa-facebook"></i></a><a href="#" class="external gplus"><i class="fa fa-google-plus"></i></a><a href="#" class="external twitter"><i class="fa fa-twitter"></i></a><a href="#" class="email"><i class="fa fa-envelope"></i></a></div>
+              <p>Visit ID: {{visit.id}}</p>
+              <h5>Assessment Results</h5>
               <div class="text" v-for="documented_answer in visit.documented_answers">
+
                 <p>{{ documented_answer.possible_answer.choice }} </p>
               </div>
             </div>

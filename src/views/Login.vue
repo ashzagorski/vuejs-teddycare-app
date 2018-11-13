@@ -59,7 +59,11 @@ export default {
           this.employeeNumber = "";
           this.password = "";
         });
-    }
+    },
+    beforeRouteUpdate(to, from, next) {
+      this.$router.push("/home");
+      next();
+    }, 
   }
 };
 </script>

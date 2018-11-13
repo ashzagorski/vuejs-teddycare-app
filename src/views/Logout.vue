@@ -12,6 +12,7 @@ export default {
     localStorage.removeItem("jwt");
     localStorage.removeItem("id");
     localStorage.removeItem("name");
+    localStorage.removeItem("patientId");
     this.$router.push("/");
   }
 };

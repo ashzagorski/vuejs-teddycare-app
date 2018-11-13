@@ -7,7 +7,7 @@
         <div class="job-detail-description">
           User: "Launch Teddy Talk." <br>
           User: "Start Pain Assessment" <br>
-          User: Provide visit ID when prompted. 
+          User: Provide visit ID when prompted. <br>
         </div>
          <div class="job-detail__apply-top" style="text-align: center;">
             <router-link class="btn btn-primary" v-bind:to="'/patients/' + patient_id"> Completed Pain Assessment </router-link>

@@ -8,17 +8,13 @@
           <div class="row">
             <div class="col-md-12 col-lg-6">
               <div class="row">
-                <div class="col-2"><img src="img/person-1.jpg" alt="LoremIpsum " class="img-fluid"></div>
+                <div class="col-2"><img class="img-thumbnail" v-bind:src="todays_visit.patient.image"></div>
                 <div class="col-10" >
-                  <h4 class="job__title"><a href="detail.html">{{ todays_visit.patient.name }} </a></h4>
-                  <p class="job__company">
-                     {{ todays_visit.patient.date_of_birth}}
-                    
-                  </p>
+                  <h4 class="job__title"><a v-bind:to="'/patients/' + todays_visit.patient.id">{{ todays_visit.patient.name }} </a></h4>   
                 </div>
               </div>
             </div>
-            <div class="col-10 col-md-3 col-lg-3 ml-auto"><i class="fa fa-map-marker job__location"></i> {{todays_visit.formatted.visit_datetime }} </div>
+            <div class="col-10 col-md-3 col-lg-3 ml-auto"> Visit Time: {{todays_visit.formatted.time }} </div>
             <div class="col-10 col-md-3 col-lg-3 ml-auto">
                 <button class="btn btn-primary" v-on:click="storeId(todays_visit)" v-bind:to="'/patients/' + todays_visit.patient.id ">Start Visit</button>
             </div>
