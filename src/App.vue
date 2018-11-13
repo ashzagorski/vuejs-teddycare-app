@@ -7,11 +7,11 @@
           <div id="navbarSupportedContent" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active"><a href="#/home" class="nav-link">Home <span class="sr-only">(current)</span></a></li>
-              <li class="nav-item active"><a href="#searchModal" data-toggle="modal" class="nav-link">Search for Patient</a></li>
+              <!-- <li class="nav-item active"><a href="#searchModal" data-toggle="modal" class="nav-link">Search for Patient</a></li> -->
               <li class="nav-item dropdown"><a id="pages" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">{{name}}</a>
                 <div aria-labelledby="pages" class="dropdown-menu">
                   <a href="#/home" class="dropdown-item">Home</a>
-                  <a v-bind:to="'/healthcare_providers/' + id" class="dropdown-item">Todays Visits</a>
+                  <a v-bind:href="'#/healthcare_providers/' + id" class="dropdown-item">Todays Visits</a>
                   <a href="#/visits" class="dropdown-item">All Visits</a>             
                 </div>
               </li>
@@ -21,7 +21,7 @@
         </div>
       </nav>
     </header>
-     <div id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade">
+    <!--  <div id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade">
       <div role="document" class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -44,7 +44,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <router-view/>
      <footer class="footer">
       <div class="footer__block">

@@ -15,7 +15,9 @@
             <label>Password:</label>
             <input type="password" class="form-control" v-model="password">
           </div>
-          <input style="center" class="btn btn-outline-white-primary" type="submit"  value="Login">
+          <div style="text-align: center;">
+          <input  class="btn btn-outline-white-primary" type="submit"  value="Login">
+          </div>
         </form>
       </div>
     </section>

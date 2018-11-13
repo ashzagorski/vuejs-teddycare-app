@@ -21,7 +21,7 @@
 
 
               <a href="#/questions/1" v-on:click="storePatientId(patient)" class="btn btn-outline-white-secondary btn-sm"> <i class="fa fa-file-text-o"></i>Complete Pain Assessment</a><a href="#/echo" v-on:click="storePatientId(patient)"class="btn btn-outline-white-secondary btn-sm"> <i class="fa fa-file-text-o"></i>Complete Pain Assessment with Echo</a>
-              <p><span class="badge badge-success">{{visit_id}}</span></p>
+              <p><span class="badge badge-success">Current Visit Id: {{visit_id}}</span></p>
             </div>
           </div>
         </div>
@@ -40,7 +40,7 @@
             <div class="team-member" >
               <div class="image"><img src="img/cold-weather.jpg" alt="" class="img-fluid rounded-circle"></div>
               <h3 class="h4"><a href="#">Completed</a></h3>
-              <p class="role">{{visit.formatted.visit_datetime}}</p>
+              <p class="role">{{visit.formatted.date}}</p>
               <p>Visit ID: {{visit.id}}</p>
               <h5>Assessment Results</h5>
               <div class="text" v-for="documented_answer in visit.documented_answers">
@@ -54,29 +54,6 @@
       </div>
     </section>
    
-        
-
-    <section class="section bg-light-gray">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <nav aria-label="breadcrumb">
-              <ul class="breadcrumb d-flex justify-content-center">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li aria-current="page" class="breadcrumb-item active">Packages</li>
-              </ul>
-            </nav>
-            <h1 class="heading">Packages</h1>
-            <p class="lead text-center mb-4">
-                       
-              One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.  
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  
-
   </div>
 </template>
 
